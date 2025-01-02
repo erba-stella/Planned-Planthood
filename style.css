@@ -146,6 +146,7 @@ main {
 
   /* Sizes */
   --click-target-size: 2.75rem;
+  --border-radius: 2em;
   --flow-space: 1em;
   --section-padding: 1rem 0;
   --section-padding-footer: 2rem 0 4rem 0;
@@ -167,16 +168,14 @@ body {
 
 h2 {
   font-size: var(--fs-700);
+  font-weight: var(--fw-semi-bold);
+  line-height: 1.1;
 }
 
 h3 {
   font-size: var(--fs-600);
   font-weight: var(--fw-semi-bold);
-}
-
-h3 {
-  font-weight: var(--fw-bold);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 a {
@@ -205,43 +204,21 @@ dl {
 }
 
 
-
-body {
-  --clr-fg: var(--clr-primary-light-2);
-  --clr-bg: var(--clr-accent);
-}
-
-.main-header {
-  --clr-fg: var(--clr-accent);
-  --clr-bg: var(--clr-primary-light-1);
-  background-color: var(--clr-bg);
-}
-
-.main-header {
-  background-color: var(--clr-primary-light-1);
-  color: var(--clr-accent);
-}
-
-.full-width {
-  background-color: var(--clr-primary-light-1);
-}
-
-.main-footer {
-  --clr-fg: var(--clr-primary-light-1);
-  --clr-bg: var(--clr-accent);
-  background-color: var(--clr-bg);
-}
-
-
 /* ====================================================
   
-    LAYOUT
-    - Composition / Global Layout 
+    LAYOUT / Composition
+
+    -   Global layout for the page.
+    -   Header 
+    -   Main:
+        -   Plant cards
+        -   Full width sections 
+    -   Footer
 
   ===================================================== */
 
 
-/* --------------  LAYOUT: GLOBAL  -----------------
+/* --------------  LAYOUT (GLOBAL LAYOUT)  -----------------
   Main Grid layout for the page.
   - Tre rows: Header, Main and Footer.
 */
@@ -315,7 +292,7 @@ main>section:first-of-type {
   padding: var(--section-padding-footer, 2rem 0 4rem 0);
 }
 
-/* -------------- LAYOUT - HEADER -----------------
+/* -------------- LAYOUT - MAIN HEADER -----------------
   - Logo and navigation menu in the header.
 */
 
@@ -336,55 +313,82 @@ main>section:first-of-type {
   }
 }
 
-/* -------------- LAYOUT - MAIN: CARDS SECTION -----------------
-  -  plant-cards in the main section.
+
+/* ==========================
+    MAIN HEADER - AREAS
 */
 
-main>.section__plant-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-content: center;
-
-  gap: 1rem;
-
-  .card {
-    display: grid;
-    /* gap: 2rem; */
-    /* height: auto; */
-    /* min-height: 20px; */
-  }
+/* Consistent sizes for all header items */
+.main-header:is(.logo-group, .nav-menu-group) {
+  font-size: var(--fs-600);
 }
 
-/* -------------- LAYOUT - MAIN: FULL WIDTH SECTIONS -----------------
-  - Anmälan till nyhetsbrevet and "Våra tidigare odlingar".
+.nav-toggle-menu,
+.nav-toggle-button,
+.logo-group {
+  height: max(4em, var(--click-target-size));
+}
+
+.nav-toggle-menu a {
+  padding: 0 1.5em;
+}
+
+
+/* ==========================
+    Header: Nav menu group 
 */
 
-.full-width {
+.nav-menu-group {
+  container-type: inline-size;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  text-transform: uppercase;
 
-  justify-items: center;
-  padding: 3rem 0;
-
-  .full-width__content {
-    text-align: center;
+  .nav-toggle-menu {
+    display: none;
   }
 
-  @media screen and (width > 800px) {
-    justify-items: unset;
-    /* grid-template-rows: repeat(6, 1fr); */
-
-    .full-width__icon {
-      grid-row: 1 / -2;
-      grid-column: 8 / -3;
-      place-self: center;
-      width: 400px;
+  @container (width > 560px) {
+    .nav-toggle-menu {
+      display: flex;
     }
 
-    .full-width__content {
-      align-self: center;
-      grid-column: 3 / 8;
+    .nav-toggle-button {
+      display: none;
     }
   }
 }
+
+
+/* ==========================
+    LOGO - used in header and footer
+*/
+
+.logo-group {
+  display: flex;
+  gap: .5em;
+  height: fit-content;
+  text-transform: uppercase;
+
+  .logo-text {
+    font-weight: var(--fw-medium);
+    width: min-content;
+    line-height: .9;
+  }
+
+  .logo-image {
+    width: 2.15em;
+    height: 2.15em;
+    transform: translateY(-0.2em);
+  }
+}
+
+.logo-image-original {
+  stroke-width: 8;
+  fill: none;
+}
+
 
 /* -------------- LAYOUT - FOOTER -----------------
   - Footer layout.
@@ -412,190 +416,14 @@ main>.section__plant-cards {
   }
 }
 
-
-
-input[type="email"]:valid {
-  border-color: green;
-}
-
-input[type="email"]:valid+label {
-  color: green;
-}
-
-input[type="email"]:invalid {
-  border-color: red;
-}
-
-input[type="email"]:invalid+label {
-  color: red;
-}
-
-input[type="email"] {
-  border: 1px solid var(--clr-neutral-300);
-  padding: 0.5em;
-}
-
-/* The :valid and :invalid CSS */
-
-/* Footer layout */
-
-
-
-
-.flow>*+* {
-  margin-block-start: var(--flow-space, 1em);
-}
-
-
-
-/* MAIN HEADER - AREAS */
-
-/* Consistent sizes for all header items */
-.main-header:is(.logo-group, .nav-menu-group) {
-  font-size: var(--fs-600);
-}
-
-.nav-toggle-menu,
-.nav-toggle-button,
-.logo-group {
-  height: max(4em, var(--click-target-size));
-}
-
-.nav-toggle-menu a {
-  padding: 0 1.5em;
-}
-
-
-/* --fs-600: 1.5rem; */
-
-/* Logo  */
-.logo-group {
-  display: flex;
-  gap: .5em;
-  height: fit-content;
-  text-transform: uppercase;
-
-  .logo-text {
-    font-weight: var(--fw-medium);
-    width: min-content;
-    line-height: .9;
-  }
-
-  .logo-image {
-    width: 2.15em;
-    height: 2.15em;
-    transform: translateY(-0.2em);
-  }
-
-}
-
-.logo-image-original {
-  stroke-width: 8;
-  fill: none;
-}
-
-
-/* ==========================
-    Nav menu group 
+/* -------------- LAYOUT - MAIN -----------------
 */
 
-.nav-menu-group {
-  container-type: inline-size;
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  text-transform: uppercase;
-
-  .nav-toggle-menu {
-    display: none;
-  }
-
-  @container (width > 560px) {
-    .nav-toggle-menu {
-      display: flex;
-    }
-
-    .nav-toggle-button {
-      display: none;
-    }
-  }
-}
-
 /* ==========================
-    Nav menu group items
+    LAYOUT MAIN: FEATURED PLANTS SECTION
+    - Uppskattade växter / 
+    (image gallery)
 */
-
-.nav-toggle-menu {
-  li {
-    display: flex;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-  }
-}
-
-
-.nav-toggle-button {
-  aspect-ratio: 1 / 1;
-
-  .nav-toggle-icon {
-    width: 2.6em;
-    height: 2.6em;
-    margin: 0 auto;
-    stroke-width: .35em;
-    stroke-linecap: round;
-    stroke: currentColor;
-    fill: none;
-  }
-}
-
-
-
-button {
-  background-color: var(--clr-bg);
-  cursor: pointer;
-  text-decoration: none;
-  border: 0;
-
-}
-
-.button--primary {
-  background-color: var(--clr-accent);
-  color: var(--clr-primary-light-1);
-  border-radius: var(--border-radius, 1rem);
-  padding: 1em 2em;
-}
-
-
-
-button,
-:is(nav, li) a {
-  color: var(--clr-fg);
-
-  &:hover,
-  &:focus-visible {
-    /* Switch colors */
-    color: var(--clr-bg);
-    background-color: var(--clr-fg);
-  }
-
-  &svg {
-    color: var(--clr-fg);
-
-  }
-}
-
-
-
-
-
-
-
-
-/* Featured images */
-
 .section__featured-plants {
   width: 100%;
   container-name: featured-plants;
@@ -603,12 +431,14 @@ button,
 }
 
 .image-collection {
+  background-color: var(--clr-primary-light-1);
+  box-shadow: var(--border-shadow);
+  padding: 1rem;
   width: 100%;
 
   display: grid;
   --grid-columns: 4;
   grid-template-columns: repeat(var(--grid-columns, 2), 1fr);
-  gap: .3vw;
 
   img {
     --span-rows: 1;
@@ -641,50 +471,292 @@ button,
   }
 }
 
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
+
+/* ==========================
+   LAYOUT MAIN: Plant Cards section
+*/
+main>.section__plant-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+
+  gap: var(--flow-space, 1em);
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--flow-space, 1em);
+
+    img {
+      width: 3rem;
+      aspect-ratio: 1 / 1;
+    }
+
+    adress {
+      width: 80%;
+    }
+  }
 }
 
-.icon-plant {
+
+/* ==========================
+   LAYOUT MAIN: FULL WIDTH SECTIONS
+  - "Anmäl dig till vårt nyhetsbrev"
+  - "Våra tidigare odlingar".
+
+*/
+.full-width {
+
+  justify-items: center;
+  padding: 3rem 0;
+
+  .full-width__content {
+    margin: 0 max(calc(7vw - 1rem), 0px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .button-link {
+      width: fit-content;
+      align-self: end;
+    }
+  }
+
+  @media screen and (width > 880px) {
+    justify-items: unset;
+    /* grid-template-rows: repeat(6, 1fr); */
+
+    .full-width__icon {
+      grid-row: 1 / -2;
+      grid-column: 8 / -3;
+      place-self: center;
+      width: 400px;
+    }
+
+    .full-width__content {
+      align-self: center;
+      text-align: left;
+      grid-column: 3 / 8;
+      display: flex;
+      margin: 0;
+
+    }
+  }
+}
+
+
+/* ====================================================
+  
+    DESIGN / Blocks
+
+  ===================================================== 
+  */
+
+.flow>*+* {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.main-header {
+  color: var(--clr-accent);
+  background-color: var(--clr-primary-light-1);
+}
+
+.main-footer {
+  color: var(--clr-primary-light-1);
+  background-color: var(--clr-accent);
+
+  & a {
+    color: var(--clr-primary-light-1);
+  }
+}
+
+.full-width {
+  background-color: var(--clr-primary-light-1);
+}
+
+
+
+/* ==========================
+    Design: Plant Cards / Tags
+*/
+
+.card {
+  background-color: var(--clr-primary-light-1);
+  box-shadow: var(--border-shadow);
+  padding: 1rem;
+  height: auto;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--fs-100);
+  align-items: center;
+  /* gap: .5em; */
+  min-height: 4em;
+
+  [data-tag] {
+    margin: .2em;
+    padding: .2em .5em;
+    border-radius: .5em;
+    background-color: var(--clr-accent);
+    color: var(--clr-primary-light-1);
+  }
+}
+
+/* ==========================
+    DESIGN: Plant Icons
+*/
+
+.full-width__icon {
   background-color: var(--clr-accent);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
+  width: 50%;
+  display: grid;
+  place-items: center;
+
+  &.icon-seedling img {
+    scale: .7;
+  }
+
+  &.icon-planting img {
+    scale: .6;
+    transform: translateY(-5%)
+  }
+}
+
+/* ==========================
+    DESIGN: Email-form
+*/
+.email-form {
+
+  justify-content: center;
+  position: relative;
+
+
+  input {
+    padding: 1em;
+    padding-right: 6.5em;
+    border: 1px solid var(--clr-primary);
+    border-radius: var(--border-radius, 1rem);
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    width: 6em;
+  }
 }
 
 
-/* ============================================
-    blocks 
+/* ==========================
+    DESIGN: Nav toggle menu och button
 */
 
-/* :is(nav, button) {
-  color: var(--clr-accent);
-  color: red;
+.nav-toggle-menu {
+  li {
+    display: flex;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav-toggle-button {
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+
+  .nav-toggle-icon {
+    width: 2.6em;
+    height: 2.6em;
+    margin: 0 auto;
+    stroke-width: .35em;
+    stroke-linecap: round;
+    stroke: currentColor;
+    fill: none;
+  }
+}
+
+
+/* ==========================
+    DESIGN: Interaction, Buttons and links
+*/
+
+button {
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+}
+
+a.button-link,
+.button-primary {
+  display: block;
+  background-color: var(--clr-accent);
+  color: var(--clr-primary-light-1);
+  border-radius: var(--border-radius, 1rem);
+  padding: 0.75em 1em;
+}
+
+:where(a) {
 
   &:hover,
   &:focus-visible {
-    color: var(--clr-primary-light-1);
+    color: inherit;
     text-decoration: underline;
+    outline: none;
   }
-} 
+}
+
+:is(.button-primary, a.button-link) {
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--clr-primary-light-1);
+    color: var(--clr-accent);
+    text-decoration: none;
+    outline: 0.15em solid var(--clr-accent);
+  }
+}
+
+.nav-menu-group :is(a, .nav-toggle-button) {
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--clr-accent);
+    color: var(--clr-primary-light-1);
+    text-decoration: none;
+  }
+}
+
+.skip-link {  
+  background-color: var(--clr-accent);
+  color: var(--clr-primary-light-1);
+  padding: 1em 3em 1em 2em;
+  border-radius: 0 0 var(--border-radius, 1rem);
+  z-index: 100;
+}
+
+/* ====================================================
   
-G128: Indicating current location within navigation bars
-https://accessibility.huit.harvard.edu/technique-accessible-current-page-indication
+    UTILITIES
 
-One robust and well-supported way to do this is by including some text that is hidden from view but available to screen readers:
-<li>
-  <a href="/about">about <span class="vh">(the current page)</span></a>
-</li>
-*/
+  ===================================================== 
+  */
 
-
-
-
-
-
-
-
-/* Utilities */
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -707,44 +779,9 @@ One robust and well-supported way to do this is by including some text that is h
   top: 0;
   left: 0;
   transform: translateY(-100%);
-}
 
-/* Show keyboard focus */
-.tab-focus-visible:focus-visible {
-  transform: translateY(0%);
-}
-
-
-/* ==========================
-    Plant Icons
-*/
-
-
-
-.full-width__icon {
-  background-color: var(--clr-accent);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  width: 50%;
-  display: grid;
-
-  &.icon-seedling img {
-    scale: 1.15;
-    transform: translateY(42%) translateX(68%);
+  /* Show keyboard focus */
+  &:focus-visible {
+    transform: translateY(0%);
   }
-
-  &.icon-planting img {
-    scale: .58;
-  }
-}
-
-
-/* TA BORT!!! */
-
-:where(.card) {
-  background-color: var(--clr-primary-light-3);
-  border-radius: 1rem;
-  box-shadow: var(--border-shadow);
-  padding: 1rem;
-  height: 200px;
 }

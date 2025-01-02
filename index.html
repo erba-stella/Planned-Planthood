@@ -101,14 +101,16 @@
         <h2>Uppskattade växter</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, corporis ipsum.</p>
 
+        <!-- === IMAGE COLLECTION === -->
         <figure class="image-collection">
-          <img src="Assets/images/plant-images/artbreeder-image_1_flowers-eadible-ornamentals-2.jpeg" alt="featured image 1">
-          <img src="Assets/images/plant-images/artbreeder-image_1_winter-gardening.jpeg" alt="featured image 2">
-          <img src="Assets/images/plant-images/artbreeder-image_1_winter-squash.png" alt="featured image 3">
-          <img src="Assets/images/plant-images/artbreeder-image_1_mix-herbs.jpeg" alt="featured image 4">
-          <img src="Assets/images/plant-images/artbreeder-image_1_purslane.jpeg" alt="featured image 5">
-          <img src="Assets/images/plant-images/artbreeder-image_1_flowers-eadible-ornamentals-2.jpeg" alt="featured image 1">
+          <img src="Assets/images/plant-images/artbreeder-image_1_flowers-eadible-ornamentals-2.jpeg" alt="En äng med blommor i många färger">
+          <img src="Assets/images/plant-images/artbreeder-image_1_winter-gardening.jpeg" alt="En trädgård med snö. I trägårdslandet syns mangold som trotsar kylan">
+          <img src="Assets/images/plant-images/artbreeder-image_1_winter-squash.png" alt="Vintersquash i trädgårdslandet">
+          <img src="Assets/images/plant-images/artbreeder-image_1_mix-herbs.jpeg" alt="En fin liten kryddträdgåd med olika kryddväxter">
+          <img src="Assets/images/plant-images/artbreeder-image_1_purslane.jpeg" alt="Gruvsallad. En liten planta växer i skuggan under träden">
+          <img src="Assets/images/plant-images/artbreeder-image__flowers-for-pollinators.jpeg" alt="Blommor som lockar till sig pollinerande insekter">
         </figure>
+        <figcaption class="visually-hidden">Några av våra mest uppskattade växter i olika kategorier</figcaption>
       </section>
 
 
@@ -122,10 +124,10 @@
         <div class="full-width__content [ flow ]">
           <h2>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h2>
           <!-- Fixa ett tillgängligt formulär... -->
-          <form action="nowhere.php" method="post">
+          <form class="email-form" action="nowhere.php" method="post">
             <label class="visually-hidden" for="email">E-postadress</label>
-            <input type="email" name="email" id="email" required />
-            <button type="submit">SKICKA</button>
+            <input type="email" name="email" id="email"  placeholder="email@domain.com" required />
+            <button class="button-primary" type="submit">SKICKA</button>
           </form>
         </div>
         
@@ -135,19 +137,267 @@
       <!-- ====== NEW PLANTINGS ====== -->
       <section class="section__plant-cards">
 
-        <article class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
-        <article class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article> 
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__spinach.jpeg" alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="coldhardy">VINTERODLING</li>
+            <li data-tag="shade">SKUGGA</li>
+          </ul>
+          <h3>Vinterspenat</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Grönis</address>
+              <time datetime="2024-07-07">2024-07-07</time>
+            </div>
+          </footer>
+        </article>
 
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__dahlia.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="decorative">DEKORATIV</li>
+            <li data-tag="perennial">FLERÅRIG</li>
+            <li data-tag="pollinators">DRAGVÄXT</li>
+          </ul>
+          <h3>Dahlia</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Krydd-Malin</address>
+              <time datetime="2024-12-17">2024-12-17</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__sweet-lupins.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="pollinators">DRAGVÄXT</li>
+          </ul>
+          <h3>Sötlupin</h3>
+          <p>Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Grönis</address>
+              <time datetime="2024-01-22">2024-01-22</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__sallad-multi-colored.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="medicinal">LÄKEVÄXT</li>
+            <li data-tag="coldhardy">VINTERODLING</li>
+            <li data-tag="shade">SKUGGA</li>
+          </ul>
+          <h3>Sallad</h3>
+          <p>Lorem ipsum dolor sit. Ipsam earum blanditiis maiores nisi magni omnis laudantium sed fugit iure doloremque nesciunt delectus, reprehenderit tenetur molestias. Modi exercitationem nulla dignissimos velit?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Blomsterkalle</address>
+              <time datetime="2024-07-12">2024-05-12</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__wild-cucumber.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+          </ul>
+          <h3>Kinesisk vildgurka</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Coolio</address>
+              <time datetime="2024-07-07">2024-07-07</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__echinacea.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="decorative">DEKORATIV</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="perennial">FLERÅRIG</li>
+            <li data-tag="medicinal">LÄKEVÄXT</li>
+            <li data-tag="pollinators">DRAGVÄXT</li>
+          </ul>
+          <h3>Solhatt</h3>
+          <p>Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Blomsterkalle</address>
+              <time datetime="2024-08-01">2023-08-01</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__clover.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="perennial">FLERÅRIG</li>
+            <li data-tag="herb">KRYDDA</li>
+            <li data-tag="shade">SKUGGA</li>
+          </ul>
+          <h3>Harsyra</h3>
+          <p>Lorem ratione quia eos pariatur deserunt veritatis.
+            Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Coolio</address>
+              <time datetime="2024-02-15">2024-02-15</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__tomato-heirloom.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="decorative">DEKORATIV</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+          </ul>
+          <h3>Okänd tomatsort</h3>
+          <p>Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum eum maiores iste in, quis eius?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Naturvännen</address>
+              <time datetime="2024-03-12">2024-03-12</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__wild-garlic.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="perennial">FLERÅRIG</li>
+            <li data-tag="herb">KRYDDA</li>
+            <li data-tag="shade">SKUGGA</li>
+          </ul>
+          <h3>Ramslök</h3>
+          <p>Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Grönis</address>
+              <time datetime="2024-07-13">2024-07-13</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__malva.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="decorative">DEKORATIV</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="perennial">FLERÅRIG</li>
+            <li data-tag="medicinal">LÄKEVÄXT</li>
+            <li data-tag="pollinators">DRAGVÄXT</li>
+          </ul>
+          <h3>Myskmalva</h3>
+          <p>Lorem elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Blomsterkalle</address>
+              <time datetime="2023-04-05">2023-04-05</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__broccoli.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="coldhardy">VINTERODLING</li>
+          </ul>
+          <h3>Broccoli</h3>
+          <p>Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Krydd-Malin</address>
+              <time datetime="2024-05-27">2024-05-27</time>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img src="Assets/images/plant-images/artbreeder-image__leafy-greens-beet.jpeg"
+            alt="Loremipsum dolor sit amet consectetur adipisicing elit.">
+          <ul class="card-tags">
+            <li data-tag="edible">ÄTBAR</li>
+            <li data-tag="decorative">DEKORATIV</li>
+            <li data-tag="easy">LÄTTODLAD</li>
+            <li data-tag="coldhardy">VINTERODLING</li>
+            <li data-tag="shade">SKUGGA</li>
+          </ul>
+          <h3>Bladbeta</h3>
+          <p>Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+          </p>
+          <footer class="card-footer">
+            <img src="https://avatar.iran.liara.run/public/94" alt="">
+            <div class="card-footer__info">
+              <address>Grönis</address>
+              <time datetime="2024-07-22">2024-07-22</time>
+            </div>
+          </footer>
+        </article>
+
+       
       </section>
 
 
@@ -162,7 +412,8 @@
           <h2>Våra tidigare odlingar</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
             Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
-            Planterade plantor</p>
+          </p>
+          <a class="button-link" href="#">Planterade plantor</a>
         </div>
       </aside>
     </main>
