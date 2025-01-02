@@ -1,0 +1,750 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+
+/* reset from Kevin Powell edit if you like */
+
+/* makes sizing simpler */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+html {
+  color-scheme: dark light;
+}
+
+/* min body height */
+body {
+  min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  transform-origin: 50% 50%;
+}
+
+/* make headings wrap better */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+  max-width: 55ch;
+}
+
+/* for container queries, landmarks as containers */
+body> :is(header, footer),
+body>*>:is(header, footer),
+main {
+  container-type: inline-size;
+}
+
+/* remove list style but keep it as list for Safari browser - use with <ul role="list"> */
+[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Theme */
+
+
+:root {
+  /* base-color-palette */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(0, 0%, 87%);
+  --clr-neutral-300: hsl(0, 0%, 57%);
+  --clr-neutral-400: hsl(0, 0%, 27%);
+  --clr-neutral-800: hsl(0, 0%, 17%);
+  --clr-neutral-900: hsl(0, 0%, 12%);
+
+  --clr-green-100: hsl(169, 11%, 93%);
+  --clr-green-200: hsl(169, 51%, 58%);
+  --clr-green-400: hsl(169, 86%, 28%);
+  --clr-green-800: hsl(169, 86%, 12%);
+  --clr-green-900: hsl(169, 80%, 12%);
+
+
+  /* tag-colors */
+  --clr-robust: hsl(221, 63%, 32%);
+  --clr-green: hsl(110, 63%, 32%);
+  --clr-flower: hsl(2, 92%, 33%);
+  --clr-colorful: hsl(303, 55%, 47%);
+  --clr-sunloving: hsl(27, 88%, 33%);
+  --clr-air: hsl(180, 84%, 27%);
+  --clr-decorative: hsl(278, 79%, 40%);
+  --clr-edible: hsl(68, 61%, 30%);
+  --clr-easy: hsl(224, 86%, 58%);
+  --clr-fragrant: hsl(327, 51%, 47%);
+  --clr-fast: hsl(218, 11%, 34%);
+
+  /* shadows */
+  --border-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  /* base-fonts */
+  --font-base: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+
+  --fs-100: 0.625rem;
+  --fs-200: 0.75rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3rem;
+
+  /* colors used */
+  --clr-accent: var(--clr-green-400);
+  --clr-accent-light-1: var(--clr-green-100);
+
+  --clr-primary-light-1: var(--clr-neutral-100);
+  --clr-primary-light-2: var(--clr-neutral-200);
+  --clr-primary-light-3: var(--clr-neutral-300);
+  --clr-primary: var(--clr-neutral-400);
+  --clr-primary-dark: var(--clr-neutral-800);
+
+  /* font weights used */
+  --fw-regular: var(--fw-400);
+  --fw-medium: var(--fw-500);
+  --fw-semi-bold: var(--fw-600);
+  --fw-bold: var(--fw-700);
+  --fw-x-bold: var(--fw-900);
+
+  /* Sizes */
+  --click-target-size: 2.75rem;
+  --flow-space: 1em;
+  --section-padding: 1rem 0;
+  --section-padding-footer: 2rem 0 4rem 0;
+
+  /* Row-gap and column-gap for the main grid */
+  --g-col-gap: clamp(16px, 10px + 2vw, 24px);
+  --g-row-gap: calc(var(--g-col-gap) * .2);
+  --g-row-gap: 2rem;
+}
+
+
+/* Global- / base- style */
+
+body {
+  font-family: var(--font-base);
+  color: var(--clr-primary-dark);
+  background-color: var(--clr-accent-light-1);
+}
+
+h2 {
+  font-size: var(--fs-700);
+}
+
+h3 {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-semi-bold);
+}
+
+h3 {
+  font-weight: var(--fw-bold);
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-accent);
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: .7em;
+  row-gap: var(--flow-space, 1em);
+
+  dt::after {
+    content: ":";
+  }
+}
+
+
+
+body {
+  --clr-fg: var(--clr-primary-light-2);
+  --clr-bg: var(--clr-accent);
+}
+
+.main-header {
+  --clr-fg: var(--clr-accent);
+  --clr-bg: var(--clr-primary-light-1);
+  background-color: var(--clr-bg);
+}
+
+.main-header {
+  background-color: var(--clr-primary-light-1);
+  color: var(--clr-accent);
+}
+
+.full-width {
+  background-color: var(--clr-primary-light-1);
+}
+
+.main-footer {
+  --clr-fg: var(--clr-primary-light-1);
+  --clr-bg: var(--clr-accent);
+  background-color: var(--clr-bg);
+}
+
+
+/* ====================================================
+  
+    LAYOUT
+    - Composition / Global Layout 
+
+  ===================================================== */
+
+
+/* --------------  LAYOUT: GLOBAL  -----------------
+  Main Grid layout for the page.
+  - Tre rows: Header, Main and Footer.
+*/
+.global-container {
+  min-height: 100lvh;
+  display: grid;
+  grid-template-rows: auto 1fr minmax(10vh, auto);
+  row-gap: var(--g-row-gap, 4rem);
+}
+
+/* 
+  Header, Main and Footer grid layout.
+  - Using named lines to create overlapping grid column arias. Inspired by this video by Kevin Powell: 
+    "A new approach to container and wrapper classes" https://www.youtube.com/watch?v=c13gpBrnGEw&t=944s
+*/
+
+:where(.main-header, .main-footer, main) {
+
+  /* Local variables for the grid. 
+  */
+
+  /*  
+  Width of the content area (100% with a max-width of 40rem) */
+  --g-content-area-width: min(60rem, 100%);
+  /*  
+  Width of left- and right collumns. (Subtracting the content area width from 100% to get 
+  the width of the side margins. Then dividing by 2 to get the width of each side) */
+  --g-side-margin-width: calc((100% - var(--g-content-area-width)) /2);
+  /*  
+  Default number of columns in the content area 
+  (now we can change this locally without having to rewrite the whole grid layout)  */
+  --g-content-area-columns: repeat(12, 1fr);
+  /* 
+  grid-template-columns */
+  --g-columns: [full-width-start] var(--g-side-margin-width) [content-width-start left] var(--g-content-area-columns) [content-width-end right] var(--g-side-margin-width) [full-width-end];
+
+  &,
+  &>.full-width {
+    display: grid;
+    grid-template-columns: var(--g-columns);
+    gap: var(--g-col-gap);
+  }
+
+  /* 
+  Direct children has "content-width" by default..
+  unless they have the class "full-width" which
+  makes them span the full width of the viewport.  */
+  &>* {
+    grid-column: content-width;
+  }
+
+  &>.full-width {
+    grid-column: full-width;
+
+    &>* {
+      grid-column: content-width;
+    }
+  }
+}
+
+/* Top- amd bottom padding for all page sections */
+main>* {
+  padding: var(--section-padding, 2rem 0);
+}
+
+main>section:first-of-type {
+  padding-top: 0;
+}
+
+.main-footer {
+  padding: var(--section-padding-footer, 2rem 0 4rem 0);
+}
+
+/* -------------- LAYOUT - HEADER -----------------
+  - Logo and navigation menu in the header.
+*/
+
+.main-header {
+  --g-content-area-columns: auto [break] 1fr;
+  align-items: center;
+
+  &>* {
+    grid-row: 1/1;
+  }
+
+  .logo-group {
+    grid-column: left / break;
+  }
+
+  .nav-menu-group {
+    grid-column: break / right;
+  }
+}
+
+/* -------------- LAYOUT - MAIN: CARDS SECTION -----------------
+  -  plant-cards in the main section.
+*/
+
+main>.section__plant-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+
+  gap: 1rem;
+
+  .card {
+    display: grid;
+    /* gap: 2rem; */
+    /* height: auto; */
+    /* min-height: 20px; */
+  }
+}
+
+/* -------------- LAYOUT - MAIN: FULL WIDTH SECTIONS -----------------
+  - Anmälan till nyhetsbrevet and "Våra tidigare odlingar".
+*/
+
+.full-width {
+
+  justify-items: center;
+  padding: 3rem 0;
+
+  .full-width__content {
+    text-align: center;
+  }
+
+  @media screen and (width > 800px) {
+    justify-items: unset;
+    /* grid-template-rows: repeat(6, 1fr); */
+
+    .full-width__icon {
+      grid-row: 1 / -2;
+      grid-column: 8 / -3;
+      place-self: center;
+      width: 400px;
+    }
+
+    .full-width__content {
+      align-self: center;
+      grid-column: 3 / 8;
+    }
+  }
+}
+
+/* -------------- LAYOUT - FOOTER -----------------
+  - Footer layout.
+*/
+
+.main-footer {
+
+  nav {
+    display: none;
+  }
+
+  @media screen and (width > 800px) {
+    --g-content-area-columns: 1fr [break] min-content;
+
+    &>* {
+      grid-column: left / break;
+    }
+
+    nav {
+      display: flex;
+      grid-column: break / right;
+      grid-row: -3 / -1;
+    }
+
+  }
+}
+
+
+
+input[type="email"]:valid {
+  border-color: green;
+}
+
+input[type="email"]:valid+label {
+  color: green;
+}
+
+input[type="email"]:invalid {
+  border-color: red;
+}
+
+input[type="email"]:invalid+label {
+  color: red;
+}
+
+input[type="email"] {
+  border: 1px solid var(--clr-neutral-300);
+  padding: 0.5em;
+}
+
+/* The :valid and :invalid CSS */
+
+/* Footer layout */
+
+
+
+
+.flow>*+* {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+
+
+/* MAIN HEADER - AREAS */
+
+/* Consistent sizes for all header items */
+.main-header:is(.logo-group, .nav-menu-group) {
+  font-size: var(--fs-600);
+}
+
+.nav-toggle-menu,
+.nav-toggle-button,
+.logo-group {
+  height: max(4em, var(--click-target-size));
+}
+
+.nav-toggle-menu a {
+  padding: 0 1.5em;
+}
+
+
+/* --fs-600: 1.5rem; */
+
+/* Logo  */
+.logo-group {
+  display: flex;
+  gap: .5em;
+  height: fit-content;
+  text-transform: uppercase;
+
+  .logo-text {
+    font-weight: var(--fw-medium);
+    width: min-content;
+    line-height: .9;
+  }
+
+  .logo-image {
+    width: 2.15em;
+    height: 2.15em;
+    transform: translateY(-0.2em);
+  }
+
+}
+
+.logo-image-original {
+  stroke-width: 8;
+  fill: none;
+}
+
+
+/* ==========================
+    Nav menu group 
+*/
+
+.nav-menu-group {
+  container-type: inline-size;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  text-transform: uppercase;
+
+  .nav-toggle-menu {
+    display: none;
+  }
+
+  @container (width > 560px) {
+    .nav-toggle-menu {
+      display: flex;
+    }
+
+    .nav-toggle-button {
+      display: none;
+    }
+  }
+}
+
+/* ==========================
+    Nav menu group items
+*/
+
+.nav-toggle-menu {
+  li {
+    display: flex;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+.nav-toggle-button {
+  aspect-ratio: 1 / 1;
+
+  .nav-toggle-icon {
+    width: 2.6em;
+    height: 2.6em;
+    margin: 0 auto;
+    stroke-width: .35em;
+    stroke-linecap: round;
+    stroke: currentColor;
+    fill: none;
+  }
+}
+
+
+
+button {
+  background-color: var(--clr-bg);
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+
+}
+
+.button--primary {
+  background-color: var(--clr-accent);
+  color: var(--clr-primary-light-1);
+  border-radius: var(--border-radius, 1rem);
+  padding: 1em 2em;
+}
+
+
+
+button,
+:is(nav, li) a {
+  color: var(--clr-fg);
+
+  &:hover,
+  &:focus-visible {
+    /* Switch colors */
+    color: var(--clr-bg);
+    background-color: var(--clr-fg);
+  }
+
+  &svg {
+    color: var(--clr-fg);
+
+  }
+}
+
+
+
+
+
+
+
+
+/* Featured images */
+
+.section__featured-plants {
+  width: 100%;
+  container-name: featured-plants;
+  container-type: inline-size;
+}
+
+.image-collection {
+  width: 100%;
+
+  display: grid;
+  --grid-columns: 4;
+  grid-template-columns: repeat(var(--grid-columns, 2), 1fr);
+  gap: .3vw;
+
+  img {
+    --span-rows: 1;
+    --span-columns: 2;
+    grid-row: span var(--span-rows);
+    grid-column: span var(--span-columns);
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  @container (width >=400px) {
+    --grid-columns: 6;
+  }
+
+  @container (width >=800px) {
+    img:first-child {
+      --span-rows: 2;
+    }
+
+    img:nth-child(2) {
+      --span-columns: 1;
+      grid-column: 3 / 4;
+    }
+
+    img:nth-child(3) {
+      --span-columns: 1;
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon-plant {
+  background-color: var(--clr-accent);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+
+/* ============================================
+    blocks 
+*/
+
+/* :is(nav, button) {
+  color: var(--clr-accent);
+  color: red;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--clr-primary-light-1);
+    text-decoration: underline;
+  }
+} 
+  
+G128: Indicating current location within navigation bars
+https://accessibility.huit.harvard.edu/technique-accessible-current-page-indication
+
+One robust and well-supported way to do this is by including some text that is hidden from view but available to screen readers:
+<li>
+  <a href="/about">about <span class="vh">(the current page)</span></a>
+</li>
+*/
+
+
+
+
+
+
+
+
+/* Utilities */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*  tab-focus-visible class for keyboard-only links/skip links 
+    from: https://a11y-blog.dev/en/articles/understanding-a-skip-link/
+*/
+.tab-focus-visible {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+/* Show keyboard focus */
+.tab-focus-visible:focus-visible {
+  transform: translateY(0%);
+}
+
+
+/* ==========================
+    Plant Icons
+*/
+
+
+
+.full-width__icon {
+  background-color: var(--clr-accent);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  width: 50%;
+  display: grid;
+
+  &.icon-seedling img {
+    scale: 1.15;
+    transform: translateY(42%) translateX(68%);
+  }
+
+  &.icon-planting img {
+    scale: .58;
+  }
+}
+
+
+/* TA BORT!!! */
+
+:where(.card) {
+  background-color: var(--clr-primary-light-3);
+  border-radius: 1rem;
+  box-shadow: var(--border-shadow);
+  padding: 1rem;
+  height: 200px;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Planned Planthood</title>
+</head>
+
+<body>
+  <!-- ============== SVG SYMBOLS (not visible and removed from DOM) ============== -->
+
+  <!--  
+  Reusable SVG-symbols are kept here and cloned with <use> in the HTML.
+  (to avoid repetition when using the same SVG in multiple places).
+  -->
+  <svg class="hidden">
+    <!-- SVG Logo -->
+    <symbol id="logo-image" class="logo-image-original" stroke="currentColor" fill-opacity="0" viewBox="0 0 214 210">
+      <!-- <g stroke="#fff" stroke-width="8" filter="url(#a)"> -->
+      <g filter="url(#logo-image-filter)">
+        <path
+          d="M116.833 193.533a99.158 99.158 0 0 0 1.689-1.888l49.651-31.419c38.116-24.119 49.187-74.135 24.643-111.701-3.663-5.606-11.197-7.19-16.84-3.62l-50.212 31.773a96.116 96.116 0 0 0-15.844-18.09L52.49 7.497c-5.637-5.015-14.322-4.59-19.429.97C-2.893 47.608.211 108.04 39.974 143.412l57.43 51.089c5.637 5.015 14.322 4.59 19.429-.969Z" />
+        <path
+          d="M115.122 194.336c.405-.439.805-.881 1.197-1.327l37.371-23.488c29.24-18.378 37.761-56.524 18.908-85.185-3.069-4.664-9.348-5.96-14.043-3.009l-37.13 23.337a73.271 73.271 0 0 0-11.595-12.98L66.465 53.368c-4.65-4.11-11.805-3.766-16.024.796-27.535 29.774-25.152 75.753 5.291 102.652l43.365 38.316c4.651 4.11 11.806 3.766 16.025-.796Z" />
+      </g>
+    </symbol>
+
+    <defs>
+      <!-- SVG Filter -->
+      <filter id="logo-image-filter" width="213.878" height="210" x="0" y="0" color-interpolation-filters="sRGB"
+        filterUnits="userSpaceOnUse">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+        <feOffset dy="4" />
+        <feGaussianBlur stdDeviation="2" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_23_425" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_23_425" result="shape" />
+      </filter>
+    </defs>
+
+  </svg>
+
+
+  <div class="global-container">
+
+    <!-- ============= HEADER ============= -->
+
+    <header class="main-header">
+      
+      <!-- === SKIP LINK === -->
+      <a class="skip-link [ tab-focus-visible ]" href="#main-content">Gå direkt till innehåll</a>
+
+      <!-- === LOGO === -->
+      <div class="logo-group">
+        <svg class="logo-image" width="40" height="40" aria-hidden="true">
+          <use href="#logo-image"></use>
+        </svg>
+        <h1 class="logo-text">Planned Planthood</h1>
+      </div>
+
+      <nav class="nav-menu-group">
+        <!-- === NAV-TOGGLE-BUTTON === -->
+        <button class="nav-toggle-button" aria-haspopup="menu" aria-expanded="false" aria-controls="nav-toggle-menu">
+          <svg class="nav-toggle-icon" width="40px" height="40px" viewBox="0 0 100 100" aria-hidden="true">
+            <path class="path-1" d="M 20,29 H 80" />
+            <path class="path-2" d="M 20,50 H 80" />
+            <path class="path-3" d="M 20,50 H 80" />
+            <path class="path-4" d="M 20,71 H 80" />
+          </svg>
+        </button>
+        <!-- === NAV MENU === -->
+        <ul id="nav-toggle-menu" class="nav-toggle-menu">
+          <li><a>Hem</a></li>
+          <li><a href="#">Historik</a></li>
+          <li><a href="#">Tips</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+        <!-- 
+        Using a element without href for current page-links:
+        "If a site uses a consistent navigation toolbar on every page, then the link that would normally link to the page itself could be marked up using an a element" 
+        https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
+        -->
+      </nav>
+    </header>
+
+
+    <!-- ============= MAIN CONTENT ============= -->
+    <main id="main-content">
+
+      <!-- === SKIP LINK TARGET === -->
+      <a id="main-content" class="[ visually-hidden ]"></a><!--  
+            Using a placeholder link as target for the "skip to main content"-link
+            ref: https://a11y-blog.dev/en/articles/understanding-a-skip-link/  -->
+
+      <!-- ====== FEATURED PLANTS ====== -->
+      <section class="section__featured-plants [ flow ]">
+        <h2>Uppskattade växter</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, corporis ipsum.</p>
+
+        <figure class="image-collection">
+          <img src="Assets/images/plant-images/artbreeder-image_1_flowers-eadible-ornamentals-2.jpeg" alt="featured image 1">
+          <img src="Assets/images/plant-images/artbreeder-image_1_winter-gardening.jpeg" alt="featured image 2">
+          <img src="Assets/images/plant-images/artbreeder-image_1_winter-squash.png" alt="featured image 3">
+          <img src="Assets/images/plant-images/artbreeder-image_1_mix-herbs.jpeg" alt="featured image 4">
+          <img src="Assets/images/plant-images/artbreeder-image_1_purslane.jpeg" alt="featured image 5">
+          <img src="Assets/images/plant-images/artbreeder-image_1_flowers-eadible-ornamentals-2.jpeg" alt="featured image 1">
+        </figure>
+      </section>
+
+
+      <!-- ====== SUBSCRIBE FORM ====== -->
+      <aside class="section__subscribe [ full-width flow ]">
+
+        <div class="full-width__icon icon-planting [ visually-hidden]">
+          <img src="Assets/images/icon-planting.svg" alt="">
+        </div>
+        
+        <div class="full-width__content [ flow ]">
+          <h2>Anmäl dig till vårt nyhetsbrev så du inte missar en utsådd!</h2>
+          <!-- Fixa ett tillgängligt formulär... -->
+          <form action="nowhere.php" method="post">
+            <label class="visually-hidden" for="email">E-postadress</label>
+            <input type="email" name="email" id="email" required />
+            <button type="submit">SKICKA</button>
+          </form>
+        </div>
+        
+      </aside>
+
+
+      <!-- ====== NEW PLANTINGS ====== -->
+      <section class="section__plant-cards">
+
+        <article class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Loremipsum dolor sit amet consectetur adipisicing elit.</article>
+        <article class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article> 
+
+      </section>
+
+
+      <!-- ====== PREVIOUS PLANTINGS ====== -->
+      <aside class="section__previous-plantings [ full-width ]">
+
+        <div class="full-width__icon icon-seedling [ visually-hidden]">
+          <img src="Assets/images/icon-seedling.svg" alt="">
+        </div>
+
+        <div class="full-width__content [ flow ]">
+          <h2>Våra tidigare odlingar</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ratione quia eos pariatur deserunt veritatis.
+            Tenetur, ipsum! Iusto delectus ipsam esse pariatur rerum eveniet nostrum, dolor distinctio nam quaerat doloribus?
+            Planterade plantor</p>
+        </div>
+      </aside>
+    </main>
+
+
+    <!-- ============= FOOTER ============= -->
+    <footer class="main-footer">
+
+      <!-- LOGO -->
+      <div class="logo-group">
+        <svg class="logo-image" width="40" height="40" aria-hidden="true">
+          <use href="#logo-image"></use>
+        </svg>
+        <p class="logo-text">Planned Planthood</p>
+      </div>
+
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, veniam ducimus aut sint atque ullam alias
+        perspiciatis fuga. Consequuntur nesciunt ea corrupti aperiam fugit inventore ratione earum. Iure, eius molestias?</p>
+
+      <address>
+        <dl>
+          <dt>Telefon</dt>
+          <dd>020-1234567</dd>
+          <dt>E-post</dt>
+          <dd>
+            <a href="mailto:info@plannedplant.com">info@<wbr>plannedplant.com</a>
+          </dd>
+        </dl>
+      </address>
+
+      <nav>
+        <ul class="flow">
+          <li><a href="#">Hem</a></li>
+          <li><a href="#">Historik</a></li>
+          <li><a href="#">Tips</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>
